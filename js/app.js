@@ -7,6 +7,30 @@ function randBetween(mincust, maxcust) {
     return mincust + Math.random() * (maxcust - mincust);
 }
 
+function Location(name,mincust, maxcust, avgcookie, cookieEachHour, totalCookies){
+    this.name = name 
+    this.mincust = mincust;
+    this.maxcust = maxcust;
+    this.avgcookie = avgcookie;
+    this.cookieEachHour = cookieEachHour;
+    this.totalCookies = totalCookies;
+}
+
+let location1 = new Location('Seattle', 23,65, 6.3, [], 0)
+let location2 = new Location('Tokyo', 3, 25, 1.2, [], 0)
+let location3 = new Location('Dubia', 11,38, 3.7, [], 0)
+let location4 = new Location('Paris', 20,38, 3, [], 0)
+let location5 = new Location('Lima', 2, 16, 4.6, [], 0)
+let location6 = new Location('Total', 0, 0, 0, [], 0)
+
+for  (let i = 0; i < timeOpen.length; i++) {
+  
+    let hourlyTotal = location1.cookieEachHour[i] + location2.cookieEachHour[i] + location3.cookieEachHour[i] + location4.cookieEachHour[i] + location5.cookieEachHour[i];
+    location6.cookieEachHour[i]  = hourlyTotal;
+
+}
+
+
 
 
 let seattle = {
@@ -53,6 +77,7 @@ let seattle = {
 
 }
 seattle.cookieSales();
+
 
 
 let tokyo = {
@@ -183,7 +208,6 @@ let paris = {
 
 }
 paris.cookieSales();
-
 
 
 let lima = {
