@@ -1,5 +1,5 @@
 body{
-    color: bisque;
+    color: rgba(190, 120, 35, 0.967);
 }
 
 h1{
@@ -12,5 +12,13 @@ section{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     color: cornflowerblue;
-    
+}
+
+table, td, th {
+    border: .5px solid black;
+    border-spacing: 0px;
+}
+
+td, th {
+    padding: .5rem;
 }
