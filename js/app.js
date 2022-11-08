@@ -23,10 +23,9 @@ let location3 = new Location('Dubai', 11, 38, 3.7, [], 0);
 let location4 = new Location('Paris', 20, 38, 3, [], 0);
 let location5 = new Location('Lima', 2, 16, 4.6, [], 0);
 
-
+// let hourlyCookies (){
 // for  (let i = 0; i < timeOpen.length; i++) {
 //     let hourlyTotal = location1.cookieEachHour[i] + location2.cookieEachHour[i] + location3.cookieEachHour[i] + location4.cookieEachHour[i] + location5.cookieEachHour[i];
-//     location6.cookieEachHour[i]  = hourlyTotal;
 // }
 
 Location.prototype.cookieSales = function() {
@@ -36,12 +35,6 @@ Location.prototype.cookieSales = function() {
         this.totalCookies += cookiePerHour;
     }
 }
-
-location1.cookieSales();
-location2.cookieSales();
-location3.cookieSales();
-location4.cookieSales();
-location5.cookieSales();
 
 function rowHeader(){
     const tableRow = document.createElement('tr');
@@ -55,14 +48,30 @@ function rowHeader(){
     }
     // I want to add the Totals column
     let totalsHeader = document.createElement('th');
-    totalsHeader.innerText = 'Totals';
+    totalsHeader.innerText = 'Daily Location Total';
     tableRow.appendChild(totalsHeader);
+
+    tableBody.appendChild(tableRow);
+
+    let totalsFooter = document.createElement('th');
+    totalsFooter.innerText = 'Total';
+    // tableFooter.appendChild(totalsFooter);
 
     tableBody.appendChild(tableRow);
 }
 
+function rowFooter(){
+    let tableFooter = document.createElement('th');
+    let footContent = document.createElement('tr');
+    tableFooter.textContent= 'Totals';
+    tableFooter.appendChild(footContent);
+    tableBody.appendChild(tableFooter);
+    console.log('inside footer row');
+}
+
 // put it on the page!
 Location.prototype.render = function(){
+    this.cookieSales()
     let cityRow = document.createElement('tr');
     let locationCell = document.createElement('td');
     locationCell.textContent=this.name;
@@ -75,9 +84,13 @@ Location.prototype.render = function(){
         cityRow.appendChild(newContent);
     }
     // TODO: add the location's totalCookies in last cell
-
+    let totalCell = document.createElement('td');
+    totalCell.textContent=this.totalCookies;
+    cityRow.appendChild(totalCell);
     tableBody.appendChild(cityRow);
 }
+
+
 
 rowHeader();
 
@@ -89,3 +102,4 @@ location3.render();
 location4.render();
 location5.render();
 
+rowFooter();
