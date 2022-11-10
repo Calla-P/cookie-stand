@@ -80,7 +80,7 @@ function rowFooter(){
         footContent.appendChild(totalsFooter);
 
     tableBody.appendChild(footContent);
-    console.log('inside footer row');
+
 }
 
 // put it on the page!
@@ -103,8 +103,6 @@ Location.prototype.render = function(){
     cityRow.appendChild(totalCell);
     tableBody.appendChild(cityRow);
 }
-
-
 
 rowHeader();
 
