@@ -4,6 +4,7 @@ console.log('Hello World')
 let timeOpen = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm']
 let tableBody = document.getElementById('table')
 
+
 function randBetween(mincust, maxcust) {
     return mincust + Math.random() * (maxcust - mincust);
 }
@@ -15,18 +16,15 @@ function Location(name, mincust, maxcust, avgcookie, cookieEachHour, totalCookie
     this.avgcookie = avgcookie;
     this.cookieEachHour = cookieEachHour;
     this.totalCookies = totalCookies;
+    Location.all.push(this);
 }
-
+Location.all = [];
 let location1 = new Location('Seattle', 23, 65, 6.3, [], 0);
 let location2 = new Location('Tokyo', 3, 25, 1.2, [], 0);
 let location3 = new Location('Dubai', 11, 38, 3.7, [], 0);
 let location4 = new Location('Paris', 20, 38, 3, [], 0);
 let location5 = new Location('Lima', 2, 16, 4.6, [], 0);
 
-// let hourlyCookies (){
-// for  (let i = 0; i < timeOpen.length; i++) {
-//     let hourlyTotal = location1.cookieEachHour[i] + location2.cookieEachHour[i] + location3.cookieEachHour[i] + location4.cookieEachHour[i] + location5.cookieEachHour[i];
-// }
 
 Location.prototype.cookieSales = function() {
     for (let i = 0; i < timeOpen.length; i++) {
@@ -64,8 +62,24 @@ function rowFooter(){
     let tableFooter = document.createElement('th');
     let footContent = document.createElement('tr');
     tableFooter.textContent= 'Totals';
-    tableFooter.appendChild(footContent);
-    tableBody.appendChild(tableFooter);
+    footContent.appendChild(tableFooter);
+    let grandTotal = 0;
+    for (let i = 0; i < timeOpen.length;i++){
+        let totalHourly = 0;
+        for (let j = 0; j< Location.all.length; j++){
+            totalHourly+=Location.all[j].cookieEachHour[i];
+            grandTotal+=Location.all[j].cookieEachHour[i];
+
+        }
+        let insideFoot = document.createElement('th');
+        insideFoot.textContent = totalHourly;
+        footContent.appendChild(insideFoot);
+    }
+     let totalsFooter = document.createElement('th');
+        totalsFooter.textContent = grandTotal;
+        footContent.appendChild(totalsFooter);
+
+    tableBody.appendChild(footContent);
     console.log('inside footer row');
 }
 
@@ -101,5 +115,4 @@ location2.render();
 location3.render();
 location4.render();
 location5.render();
-
 rowFooter();
