@@ -1,6 +1,6 @@
 
 body{
-    color: bisque;
+    color: rgb(245, 195, 135);
 }
 
 h1{
@@ -10,10 +10,10 @@ h1{
 .box {
     height: 200px;
     width: 200px;
-    border: 1px solid blue;
+    border: 1px solid black;
     margin: 1rem;
     padding: 1rem;
-    background-color: aqua;
+    background-color: saddlebrown;
 }
 
 /* Flex container == parent element */
@@ -24,3 +24,39 @@ h1{
     align-items: center; /* think cross axis */
     flex-wrap: wrap; /* think, wrapping flex items to new lines */
 }
+#topheader {
+    display: flex;
+    align-items: center;
+    background-color: darkslategray;
+    justify-content: space-around;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    
+} 
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkslategray;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: rgb(245, 195, 135);
+  }
