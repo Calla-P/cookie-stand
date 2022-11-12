@@ -59,6 +59,7 @@ function rowHeader(){
 }
 
 function rowFooter(){
+    // let tablefoot = document.createElement('tfoot');
     let tableFooter = document.createElement('th');
     let footContent = document.createElement('tr');
     tableFooter.textContent= 'Totals';
@@ -104,13 +105,18 @@ Location.prototype.render = function(){
     tableBody.appendChild(cityRow);
 }
 
-rowHeader();
 
-// let locations = [location1, location2, location3, location4, location5];
+function locationTable(){
+    for (let i=0; i < Location.all.length; i++){
+        Location.all[i].render();
+    }
+}
 
-location1.render();
-location2.render();
-location3.render();
-location4.render();
-location5.render();
-rowFooter();
+function totalTable(){
+    rowHeader();
+    locationTable();
+    rowFooter();
+    
+}
+
+totalTable();
