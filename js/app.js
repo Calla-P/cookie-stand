@@ -25,7 +25,6 @@ let location3 = new Location('Dubai', 11, 38, 3.7, [], 0);
 let location4 = new Location('Paris', 20, 38, 3, [], 0);
 let location5 = new Location('Lima', 2, 16, 4.6, [], 0);
 
-
 Location.prototype.cookieSales = function() {
     for (let i = 0; i < timeOpen.length; i++) {
         let cookiePerHour = Math.floor(this.avgcookie * randBetween(this.mincust, this.maxcust));
@@ -118,5 +117,30 @@ function totalTable(){
     rowFooter();
     
 }
+
+let storeDataForm = document.getElementById('storeDataForm');
+storeDataForm.addEventListener("submit", addStore);
+
+
+function addStore(event){
+    event.preventDefault();
+    let city = event.target.city.value;
+    let minimum = event.target.minimum.value;
+    let maximum = event.target.maximum.value;
+    let average = event.target.average.value;
+    console.log('city is',city, 'minimum is', minimum, 'maximum is', maximum, 'average is', average);
+    let newLocation = new Location(city, minimum, maximum, average,[], 0);
+    
+    tableBody.innerHTML='';
+    totalTable();
+    
+    
+    event.target.city.value = null;
+    event.target.minimum.value = null;
+    event.target.maximum.value = null;
+    event.target.average.value = null;
+}
+
+
 
 totalTable();
