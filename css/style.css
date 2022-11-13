@@ -22,3 +22,17 @@ table, td, th {
 td, th {
     padding: .5rem;
 }
+
+fieldset {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+legend {
+    text-align: center;
+}
