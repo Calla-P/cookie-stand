@@ -1,5 +1,9 @@
 body{
-    color: rgba(190, 120, 35, 0.967);
+
+    background-color: rgba(190, 120, 35, 0.967);
+    color:darkslategray;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1{
@@ -17,6 +21,14 @@ section{
 table, td, th {
     border: .5px solid black;
     border-spacing: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(245, 195, 135) ;
+    color: rgb(19, 64, 147);
+    font-weight: bold;
+}
+
+th{
+    color:saddlebrown;
 }
 
 td, th {
