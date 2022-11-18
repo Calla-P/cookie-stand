@@ -8,20 +8,13 @@ body{
     align-items: center;
     text-align: center;
 }
-header{
-  display: flex; 
-  align-items: center;
-  text-align: center;
-}
+
+
 h5{
   margin:0;
   padding: 0;
   border: 0;
   text-align: left;
-}
-#topheader{
-  display: flex; 
-  flex-direction: row;
 }
 
 h1{
@@ -113,4 +106,17 @@ ul {
    footer{
     text-align:center;
    }
+
+   #stay{
+    padding-top: 1%;
+    position:fixed;
+  }
+  header{
+    display: flex; 
+    align-items: center;
+    text-align: center;
+    position: fixed; 
+   
+  
+  }
 
