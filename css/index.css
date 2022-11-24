@@ -64,7 +64,7 @@ div{
     justify-content: space-around;
     height: 100px;
     width: 100%;
-    position: fixed;
+    position: auto;
     z-index: 2;
     font-family:Georgia, 'Times New Roman', Times, serif ;
     
@@ -109,14 +109,13 @@ ul {
 
    #stay{
     padding-top: 1%;
-    position:fixed;
+    position:auto;
   }
   header{
     display: flex; 
     align-items: center;
     text-align: center;
-    position: fixed; 
+    position: auto; 
    
-  
   }
 
